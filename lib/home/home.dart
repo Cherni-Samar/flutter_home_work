@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
           ProductDetails("assets/images/fifa.jpg", "FIFA 22", 100),
           ProductDetails("assets/images/re8.jpg", "Resident Evil VIII", 200),
           ProductDetails("assets/images/rdr2.jpg", "RDR 2", 150),
-          ProductDetails("assets/images/nfs.jpg", "NFS Heat", 100),
+          ProductDetails("assets/images/nfs.jpg", "Need For Speed Heat", 100),
         ],
       ),
     );
