@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ProductDetails extends StatelessWidget {
+class ProductDetails extends StatefulWidget {
   final String _image;
   final String _title;
   final String _description;
@@ -10,23 +10,36 @@ class ProductDetails extends StatelessWidget {
   const ProductDetails(this._image, this._title, this._description, this._price, this._quantity, {super.key});
 
   @override
+  State<ProductDetails> createState() => _ProductDetailsState();
+}
+
+class _ProductDetailsState extends State<ProductDetails> {
+  late int _currentQuantity;
+
+  @override
+  void initState() {
+    _currentQuantity = widget._quantity;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_title),
+        title: Text(widget._title),
       ),
       body: Column(
         children: [
           Container(
               width: double.infinity,
               margin: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-              child: Image.asset(_image, width: 460, height: 215)),
+              child: Image.asset(widget._image, width: 460, height: 215)),
           Container(
             margin: const EdgeInsets.fromLTRB(20, 0, 20, 50),
-            child: Text(_description),
+            child: Text(widget._description),
           ),
-          Text("$_price TND", textScaleFactor: 3),
-          Text("Exemplaires disponibles : $_quantity"),
+          Text("${widget._price} TND", textScaleFactor: 3),
+          Text("Exemplaires disponibles : $_currentQuantity"),
           const SizedBox(
             height: 50,
           ),
@@ -44,7 +57,11 @@ class ProductDetails extends StatelessWidget {
                   Text("Acheter", textScaleFactor: 2)
                 ],
               ),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  _currentQuantity--;
+                });
+              },
             ),
           )
         ],

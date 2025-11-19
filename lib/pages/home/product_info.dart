@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:workshop_4sim2_2526/entities/game.dart';
 
 class ProductInfo extends StatelessWidget {
-  final String _image;
-  final String _title;
-  final int _price;
+  final Game _game;
 
-  const ProductInfo(this._image, this._title, this._price, {super.key});
+  const ProductInfo(this._game, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class ProductInfo extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.all(10),
-            child: Image.asset(_image, width: 170, height: 90,),
+            child: Image.asset(_game.image, width: 170, height: 90,),
           ),
           SizedBox(
             width: 10,
@@ -22,8 +21,8 @@ class ProductInfo extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(_title),
-              Text("$_price TND", textScaleFactor: 2,)
+              Text(_game.title),
+              Text("${_game.price} TND", textScaleFactor: 2,)
             ],
           )
         ],
