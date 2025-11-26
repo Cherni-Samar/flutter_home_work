@@ -35,8 +35,9 @@ class _SignupState extends State<Signup> {
               child: TextFormField(
                 decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Username"),
                 validator: (String? value) {
-                  if(value!.length < 5 || value.isEmpty)
+                  if(value!.length < 5 || value.isEmpty) {
                     return "Le nom d'utilisateur doit contenir au moins 5 caractères.";
+                  }
                   return null;
                 },
                 onSaved: (String? value) {
@@ -51,8 +52,9 @@ class _SignupState extends State<Signup> {
                 decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Email"),
                 validator: (value) {
                   RegExp regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
-                  if(!regex.hasMatch(value!))
+                  if(!regex.hasMatch(value!)) {
                     return "Veuillez entrer une adresse email valide.";
+                  }
                   return null;
                 },
                 onSaved: (value) {
@@ -66,8 +68,9 @@ class _SignupState extends State<Signup> {
                 obscureText: true,
                 decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Mot de passe"),
                 validator: (value) {
-                  if(value!.length < 5 || value.isEmpty)
+                  if(value!.length < 5 || value.isEmpty) {
                     return "Le mot de passe doit contenir au moins 5 caractères.";
+                  }
                   return null;
                 },
                 onSaved: (value) {
@@ -81,11 +84,13 @@ class _SignupState extends State<Signup> {
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Année de naissance"),
                 validator: (value) {
-                  if(value!.isEmpty || value.length < 4)
+                  if(value!.isEmpty || value.length < 4) {
                     return "Veuillez entrer une année de naissance valide.";
+                  }
                   int year = int.parse(value);
-                  if(year > 2025)
+                  if(year > 2025) {
                     return "Veuillez entrer une année de naissance valide.";
+                  }
                   return null;
                 },
                 onSaved: (value) {
@@ -99,8 +104,9 @@ class _SignupState extends State<Signup> {
                 maxLines: 4,
                 decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Adresse de facturation"),
                 validator: (value) {
-                  if(value!.isEmpty || value.length < 20)
+                  if(value!.isEmpty || value.length < 20) {
                     return "Veuillez entrer une adresse de facturation.";
+                  }
                   return null;
                 },
                 onSaved: (value) {
