@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'cart.dart'; // Import de la page Cart
 import 'reset_password.dart';
+import 'signup.dart'; // Import de la page Signup
 
 class Signin extends StatefulWidget {
-  const Signin({super.key});
+  const Signin({super. key});
 
   @override
   State<Signin> createState() => _SigninState();
@@ -42,11 +43,11 @@ class _SigninState extends State<Signin> {
                     return "Veuillez entrer votre nom d'utilisateur. ";
                   }
                   if(value.length < 5) {
-                    return "Le nom d'utilisateur doit contenir au moins 5 caractères.  ";
+                    return "Le nom d'utilisateur doit contenir au moins 5 caractères.";
                   }
                   return null;
                 },
-                onSaved: (String? value) {
+                onSaved: (String?  value) {
                   _username = value!;
                 },
               ),
@@ -68,7 +69,7 @@ class _SigninState extends State<Signin> {
                   }
                   return null;
                 },
-                onSaved: (String?  value) {
+                onSaved: (String? value) {
                   _password = value!;
                 },
               ),
@@ -100,6 +101,12 @@ class _SigninState extends State<Signin> {
                   child: const Text("Créer un compte"),
                   onPressed: () {
                     // Navigation vers la page Signup
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Signup(),
+                      ),
+                    );
                   },
                 )),
             Container(

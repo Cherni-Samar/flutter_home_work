@@ -17,8 +17,8 @@ class _CartState extends State<Cart> {
   void initState() {
     // Articles dans le panier (Devil May Cry 5, RE VIII, NFS Heat)
     _cartItems.add(Game("Devil May Cry 5", _description, "assets/images/dmc5.jpg", 200, 2000));
+    _cartItems.add(Game("NFS Heat", _description, "assets/images/nfs.jpg", 100, 6000));
     _cartItems.add(Game("RE VIII", _description, "assets/images/re8.jpg", 200, 4000));
-    _cartItems.add(Game("NFS Heat", _description, "assets/images/nfs. jpg", 100, 6000));
     
     _calculateTotal();
     super.initState();
