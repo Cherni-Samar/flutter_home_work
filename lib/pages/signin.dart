@@ -118,6 +118,7 @@ class _SigninState extends State<Signin> {
                   const SizedBox(
                     width: 10,
                   ),
+                  
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
